@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BELIEVE YOURSELF | LAMP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+
+<div id="landingPage">
+
+    <div id="stars"></div>
+    <div id="sparkContainer"></div>
+
+    <div class="landing-content">
+
+        <div class="mini-title">LAMP LIFE</div>
+
+        <h1>
+            BELIEVE<br>
+            <span>YOURSELF</span>
+        </h1>
+
+        <p class="landing-subtitle">
+            Touch the lamp to enter your world
+        </p>
+
+    </div>
+
+
+    <!-- LAMP -->
+
+    <button id="lampButton" class="lamp-button">
+
+        <div class="light-cone"></div>
+
+        <div class="lamp-shade">
+            <div class="lamp-glow"></div>
+        </div>
+
+        <div class="lamp-neck"></div>
+
+        <div class="lamp-base"></div>
+
+        <div class="lamp-switch"></div>
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     AUTH SCREEN
+===================================================== -->
+
+<div id="authScreen" class="auth-screen hidden">
+
+    <div class="auth-background"></div>
+
+    <button id="closeAuth" class="close-auth">×</button>
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            ✦
+        </div>
+
+        <div class="auth-title">
+            BELIEVE YOURSELF
+        </div>
+
+        <p class="auth-subtitle">
+            Build your day. Track your progress.
+        </p>
+
+
+        <!-- LOGIN -->
+
+        <div id="loginForm">
+
+            <h2>Welcome Back</h2>
+
+            <p class="form-info">
+                Continue your journey.
+            </p>
+
+            <input
+                id="loginUsername"
+                type="text"
+                placeholder="Username"
+                autocomplete="username"
+            >
+
+            <div class="password-box">
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                >
+
+                <button
+                    type="button"
+                    class="show-password"
+                    data-target="loginPassword">
+                    👁
+                </button>
+
+            </div>
+
+            <button id="loginBtn" class="primary-btn">
+                ENTER LAMP LIFE
+            </button>
+
+            <p id="loginMessage" class="auth-message"></p>
+
+            <div class="switch-auth">
+                Don't have an account?
+                <button id="showRegister">Create Account</button>
+            </div>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <div id="registerForm" class="hidden">
+
+            <h2>Create Account</h2>
+
+            <p class="form-info">
+                Your personal Lamp Life dashboard.
+            </p>
+
+            <input
+                id="registerName"
+                type="text"
+                placeholder="Your Name"
+                autocomplete="name"
+            >
+
+            <input
+                id="registerUsername"
+                type="text"
+                placeholder="Username"
+                autocomplete="username"
+            >
+
+            <div class="password-box">
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Create Password"
+                    autocomplete="new-password"
+                >
+
+                <button
+                    type="button"
+                    class="show-password"
+                    data-target="registerPassword">
+                    👁
+                </button>
+
+            </div>
+
+            <div class="password-box">
+
+                <input
+                    id="registerConfirm"
+                    type="password"
+                    placeholder="Confirm Password"
+                    autocomplete="new-password"
+                >
+
+                <button
+                    type="button"
+                    class="show-password"
+                    data-target="registerConfirm">
+                    👁
+                </button>
+
+            </div>
+
+            <button id="registerBtn" class="primary-btn">
+                CREATE MY ACCOUNT
+            </button>
+
+            <p id="registerMessage" class="auth-message"></p>
+
+            <div class="switch-auth">
+                Already have an account?
+                <button id="showLogin">Login</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN DASHBOARD
+===================================================== -->
+
+<div id="dashboard" class="hidden">
+
+    <header class="top-header">
+
+        <div>
+
+            <div class="brand">
+                BELIEVE YOURSELF
+            </div>
+
+            <div id="welcomeText" class="welcome">
+                Welcome
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div id="liveDate" class="live-date"></div>
+
+            <button id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         WEEK SELECTOR
+    ================================================= -->
+
+    <section class="week-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="small-label">YOUR WEEK</span>
+                <h2>Choose a day</h2>
+            </div>
+
+            <div id="weekRange" class="week-range"></div>
+
+        </div>
+
+
+        <div id="weekStrip" class="week-strip"></div>
+
+    </section>
+
+
+    <!-- =================================================
+         VIEW SWITCHER
+    ================================================= -->
+
+    <div class="view-tabs">
+
+        <button
+            class="view-tab active"
+            data-view="day">
+            TODAY / SELECTED DAY
+        </button>
+
+        <button
+            class="view-tab"
+            data-view="week">
+            WEEK
+        </button>
+
+        <button
+            class="view-tab"
+            data-view="month">
+            MONTH
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         DAY VIEW
+    ================================================= -->
+
+    <main id="dayView" class="view">
+
+        <section class="day-header">
+
+            <div>
+
+                <div id="selectedDayLabel" class="selected-day-label">
+                    MONDAY
+                </div>
+
+                <h1 id="selectedDateText">
+                    September 25
+                </h1>
+
+                <p id="selectedDayDescription">
+                    Your missions for today.
+                </p>
+
+            </div>
+
+
+            <div class="progress-circle">
+
+                <div id="progressNumber">
+                    0%
+                </div>
+
+                <span>COMPLETE</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS BAR -->
+
+        <div class="progress-area">
+
+            <div class="progress-track">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+            <div class="progress-caption">
+                <span id="completedCount">0 completed</span>
+                <span id="totalCount">0 missions</span>
+            </div>
+
+        </div>
+
+
+        <!-- TASKS -->
+
+        <section class="missions-card">
+
+            <div class="missions-title">
+
+                <div>
+                    <span class="small-label">
+                        DAILY MISSIONS
+                    </span>
+
+                    <h2>
+                        Your Schedule
+                    </h2>
+                </div>
+
+                <button
+                    id="addTaskBtn"
+                    class="add-task-btn">
+                    + Add Task
+                </button>
+
+            </div>
+
+
+            <div id="taskList"></div>
+
+        </section>
+
+
+        <!-- ADD TASK -->
+
+        <section
+            id="addTaskPanel"
+            class="add-task-panel hidden">
+
+            <h3>Add Custom Mission</h3>
+
+            <div class="add-grid">
+
+                <input
+                    id="customTaskTitle"
+                    type="text"
+                    placeholder="Task name">
+
+                <input
+                    id="customTaskTime"
+                    type="text"
+                    placeholder="Example: 8:00 – 8:30 PM">
+
+                <select id="customTaskCategory">
+
+                    <option>Personal</option>
+                    <option>College</option>
+                    <option>Fitness</option>
+                    <option>CAT</option>
+                    <option>AI / Skill</option>
+                    <option>Finance Learning</option>
+                    <option>Other</option>
+
+                </select>
+
+            </div>
+
+            <div class="add-actions">
+
+                <button
+                    id="saveCustomTask"
+                    class="primary-btn small">
+                    ADD MISSION
+                </button>
+
+                <button
+                    id="cancelCustomTask"
+                    class="ghost-btn">
+                    Cancel
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- REFLECTION -->
+
+        <section class="reflection-card">
+
+            <div>
+
+                <span class="small-label">
+                    DAILY REFLECTION
+                </span>
+
+                <h2>
+                    How was your day?
+                </h2>
+
+            </div>
+
+            <textarea
+                id="reflectionText"
+                placeholder="Write something about today...">
+            </textarea>
+
+            <button
+                id="saveReflection"
+                class="ghost-btn">
+                SAVE REFLECTION
+            </button>
+
+        </section>
+
+
+        <!-- PHOTO -->
+
+        <section class="photo-card">
+
+            <div>
+
+                <span class="small-label">
+                    MEMORY
+                </span>
+
+                <h2>
+                    Save today's moment
+                </h2>
+
+            </div>
+
+            <input
+                id="photoInput"
+                type="file"
+                accept="image/*"
+                hidden>
+
+            <button
+                id="photoBtn"
+                class="ghost-btn">
+                + ADD PHOTO
+            </button>
+
+            <div id="photoPreview"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =================================================
+         WEEK VIEW
+    ================================================= -->
+
+    <main
+        id="weekView"
+        class="view hidden">
+
+        <div class="page-heading">
+
+            <span class="small-label">
+                WEEKLY PROGRESS
+            </span>
+
+            <h1>
+                This Week
+            </h1>
+
+            <p>
+                Tap any day to open its complete progress.
+            </p>
+
+        </div>
+
+        <div id="weekOverview"></div>
+
+    </main>
+
+
+    <!-- =================================================
+         MONTH VIEW
+    ================================================= -->
+
+    <main
+        id="monthView"
+        class="view hidden">
+
+        <div class="page-heading">
+
+            <span class="small-label">
+                MONTHLY PROGRESS
+            </span>
+
+            <h1 id="monthTitle">
+                September 2026
+            </h1>
+
+            <p>
+                Your consistency at a glance.
+            </p>
+
+        </div>
+
+        <div id="monthCalendar" class="month-calendar"></div>
+
+    </main>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
